@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>CheckoutPage.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+CheckoutPage.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">openqa</span><span class="s2">.</span><span class="s1">selenium</span><span class="s2">.</span><span class="s1">WebDriver</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">openqa</span><span class="s2">.</span><span class="s1">selenium</span><span class="s2">.</span><span class="s1">WebElement</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">openqa</span><span class="s2">.</span><span class="s1">selenium</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">FindBy</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">org</span><span class="s2">.</span><span class="s1">openqa</span><span class="s2">.</span><span class="s1">selenium</span><span class="s2">.</span><span class="s1">support</span><span class="s2">.</span><span class="s1">ui</span><span class="s2">.</span><span class="s1">Select</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">CheckoutPage </span><span class="s0">extends </span><span class="s1">BasePage </span><span class="s2">{</span>
+
+    <span class="s0">public </span><span class="s1">CheckoutPage</span><span class="s2">(</span><span class="s1">WebDriver driver</span><span class="s2">) {</span>
+        <span class="s0">super</span><span class="s2">(</span><span class="s1">driver</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s1">@FindBy</span><span class="s2">(</span><span class="s1">xpath </span><span class="s2">= </span><span class="s3">&quot;//a[text()='Food']&quot;</span><span class="s2">)</span>
+    <span class="s0">private </span><span class="s1">WebElement foodMenu</span><span class="s2">;</span>
+
+    <span class="s1">@FindBy</span><span class="s2">(</span><span class="s1">css </span><span class="s2">= </span><span class="s3">&quot; .product-info button&quot;</span><span class="s2">)</span>
+    <span class="s0">private </span><span class="s1">WebElement addToCart</span><span class="s2">;</span>
+
+    <span class="s1">@FindBy</span><span class="s2">(</span><span class="s1">id </span><span class="s2">= </span><span class="s3">&quot;city&quot;</span><span class="s2">)</span>
+    <span class="s0">private </span><span class="s1">WebElement cityCart</span><span class="s2">;</span>
+
+    <span class="s1">@FindBy</span><span class="s2">(</span><span class="s1">id </span><span class="s2">= </span><span class="s3">&quot;postcode&quot;</span><span class="s2">)</span>
+    <span class="s0">private </span><span class="s1">WebElement postCode</span><span class="s2">;</span>
+
+    <span class="s1">@FindBy</span><span class="s2">(</span><span class="s1">id </span><span class="s2">= </span><span class="s3">&quot;region_id&quot;</span><span class="s2">)</span>
+    <span class="s0">public </span><span class="s1">WebElement cartRegion</span><span class="s2">;</span>
+
+    <span class="s0">public void </span><span class="s1">getFoodMenu</span><span class="s2">() {</span>
+        <span class="s1">foodMenu</span><span class="s2">.</span><span class="s1">click</span><span class="s2">();</span>
+
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">clickAddtoCart</span><span class="s2">(){</span>
+        <span class="s1">foodMenu</span><span class="s2">.</span><span class="s1">click</span><span class="s2">();</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setCityCart</span><span class="s2">(){</span>
+        <span class="s1">cityCart</span><span class="s2">.</span><span class="s1">sendKeys</span><span class="s2">(</span><span class="s3">&quot;Alabama&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setPostCode</span><span class="s2">(){</span>
+        <span class="s1">postCode</span><span class="s2">.</span><span class="s1">sendKeys</span><span class="s2">(</span><span class="s3">&quot;12345&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">setCartRegion</span><span class="s2">() {</span>
+        <span class="s1">cartRegion</span><span class="s2">.</span><span class="s1">sendKeys</span><span class="s2">(</span><span class="s3">&quot;Alabama&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public void </span><span class="s1">selectOption </span><span class="s2">(</span><span class="s1">WebElement element</span><span class="s2">, </span><span class="s1">String option</span><span class="s2">) {</span>
+        <span class="s1">Select optionSelect </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Select </span><span class="s2">(</span><span class="s1">element</span><span class="s2">);</span>
+        <span class="s1">optionSelect</span><span class="s2">.</span><span class="s1">selectByVisibleText</span><span class="s2">(</span><span class="s1">option</span><span class="s2">);</span>
+    <span class="s2">}</span>
+<span class="s2">}</span>
+</pre>
+</body>
+</html>
